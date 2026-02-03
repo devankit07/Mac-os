@@ -1,13 +1,26 @@
-import { Rnd } from "react-rnd"
+import { Rnd } from "react-rnd";
+import("./window.scss");
 
-const Macwindow = () => {
+const Macwindow = ({children}) => {
   return (
     <div>
       <Rnd>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed cupiditate repellat minima provident, suscipit numquam!
+        <div className="window">
+          <div className="nav">
+            <div className="dots">
+              <div className="dot red"></div>
+              <div className="dot yellow"></div>
+              <div className="dot green"></div>
+            </div>
+            <div className="title">
+              <p>Ankit -zsh</p>
+            </div>
+          </div>
+          <div className="main-content">{children}</div>
+        </div>
       </Rnd>
     </div>
-  )
-}
+  );
+};
 
-export default Macwindow
+export default Macwindow;
