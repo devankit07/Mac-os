@@ -4,7 +4,7 @@
     "image": "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=500",
     "title": "Shadcn UI - Components",
     "description": "Beautifully designed components built with Radix UI and Tailwind CSS. The gold standard for modern web apps.",
-    "tag": "React",
+    "tags": "React, Tailwind CSS",
     "repoLink": "https://github.com/shadcn-ui/ui",
     "demoLink": "https://ui.shadcn.com/"
   },
@@ -13,7 +13,7 @@
     "image": "https://avatars.githubusercontent.com/u/12551863?s=200&v=4",
     "title": "Three.js Journey",
     "description": "A high-performance 3D scene built using React Three Fiber. Optimized for smooth macOS-like animations.",
-    "tag": "Three.js",
+    "tags": "Three.js, React Three Fiber",
     "repoLink": "https://github.com/pmndrs/react-three-fiber",
     "demoLink": "https://docs.pmnd.rs/react-three-fiber"
   },
@@ -22,7 +22,7 @@
     "image": "https://avatars.githubusercontent.com/u/12551610?s=200&v=4",
     "title": "TypeScript Fullstack",
     "description": "End-to-end typesafe application using Next.js 14, Prisma, and PostgreSQL with a sleek dashboard.",
-    "tag": "Next.js",
+    "tags": "Next.js, TypeScript, Prisma",
     "repoLink": "https://github.com/vercel/next.js",
     "demoLink": "https://nextjs.org/showcase"
   },
@@ -31,7 +31,7 @@
     "image": "https://avatars.githubusercontent.com/u/6011958?s=200&v=4",
     "title": "Motion Framer Portfolio",
     "description": "A portfolio starter kit with spring physics and gesture-based interactions similar to Apple's UI.",
-    "tag": "Framer Motion",
+    "tags": "Framer Motion, React",
     "repoLink": "https://github.com/framer/motion",
     "demoLink": "https://www.framer.com/motion/"
   },
@@ -40,7 +40,7 @@
     "image": "https://avatars.githubusercontent.com/u/44059055?s=200&v=4",
     "title" : "Axios API Dashboard",
     "description": "Real-time data fetching and state management dashboard using TanStack Query and Axios.",
-    "tag": "API",
+    "tags": "API, Axios, TanStack Query",
     "repoLink": "https://github.com/axios/axios",
     "demoLink": "https://axios-http.com/"
   }

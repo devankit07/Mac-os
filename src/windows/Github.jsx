@@ -19,12 +19,7 @@ const Gitcard = ({
       <h2>{data.title}</h2>
       <p>{data.description}</p>
       <div className="tags">
-        {data.tags &&
-          data.tags.map((tag, index) => (
-            <span key={index} className="tag">
-              {tag}
-            </span>
-          ))}
+        {data.tags && <span className="tag">{data.tags}</span>}
       </div>
       <div className="urls">
         <a href={data.repoLink} target="_blank" rel="noreferrer">
