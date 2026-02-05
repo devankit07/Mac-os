@@ -1,5 +1,4 @@
 import { Rnd } from "react-rnd";
-import("./window.scss");
 
 const Macwindow = ({children}) => {
   return (

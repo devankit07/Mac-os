@@ -1,22 +1,19 @@
-import "./app.scss"
-import Dock from "./Components/Dock"
-import Nav from "./Components/Nav"
-import Notes from "./Components/Notes"
-import Github from "./windows/github"
-
-
-
+import "./app.scss";
+import Dock from "./Components/Dock";
+import Nav from "./Components/Nav";
+import Notes from "./Components/Notes";
+import Github from "./windows/Github";
 
 const App = () => {
   return (
     <main>
-      <Nav/>
-      <Dock/>
+      <Nav />
+      <Dock />
 
-     <Github/>
-     <Notes/>
+      <Github />
+      <Notes />
     </main>
-  )
-}
+  );
+};
 
-export default App
+export default App;

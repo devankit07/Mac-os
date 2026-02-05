@@ -1,6 +1,6 @@
 import GithubData from "../assets/github.json";
 import Macwindow from "./Macwindow";
-import "./github.scss";
+
 
 const Gitcard = ({
   data = {

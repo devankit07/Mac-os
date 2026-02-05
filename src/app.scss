@@ -1,23 +1,210 @@
-
-*{
+/* --- Global Reset & Root Setup --- */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
-html, body ,#root{
-   height: 100%;
-   width: 100%;
-}
-
-main{
+html, body, #root {
     height: 100%;
     width: 100%;
+    overflow: hidden; 
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+}
 
-    background-image: url(/public/mac-wall.jpg);
+/* --- Desktop Background Layer --- */
+main {
+    height: 100%;
+    width: 100%;
+    background-image: url('mac-wall.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
 }
+
+/* --- 1. Top Menubar Styling --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: white;
+    padding-inline: 0.85rem;
+    padding-block: 0.35rem;
+    background-color: rgba(0, 0, 0, 0.15); 
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: default;
+    z-index: 1000;
+
+    .left, .right {
+        display: flex;
+        gap: 1.2rem;
+        align-items: center;
+
+        .apple-icon img {
+            width: 16px;
+            filter: invert(1); 
+        }
+
+        .nav-icon img {
+            width: 18px;
+            filter: invert(1);
+        }
+
+        .nav-item p {
+            cursor: pointer;
+            &:hover { opacity: 0.7; }
+        }
+    }
+}
+
+/* --- 2. Reusable Mac Window Component --- */
+.window {
+    background-color: rgba(28, 28, 28, 0.75); 
+    backdrop-filter: blur(40px) saturate(200%); 
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 0.5px rgba(0, 0, 0, 0.2); 
+    color: rgba(255, 255, 255, 0.9);
+
+    /* Draggable Title Bar */
+    .nav { 
+        height: 38px; 
+        width: 100%;
+        padding-inline: 0.85rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        background: rgba(255, 255, 255, 0.05); 
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        cursor: grab;
+        position: relative;
+
+        .dots {
+            display: flex;
+            gap: 8px; 
+            z-index: 5;
+
+            .dot {
+                height: 12px;
+                width: 12px;
+                border-radius: 50%;
+                border: 0.5px solid rgba(0, 0, 0, 0.15); 
+            }
+            .red { background-color: #FF5F57; }
+            .yellow { background-color: #FEBC2E; }
+            .green { background-color: #28C840; }
+        }
+
+        .title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.4);
+            white-space: nowrap;
+        }
+    }
+
+    .main-content {
+        height: calc(100% - 38px);
+        overflow-y: auto;
+        
+        &::-webkit-scrollbar { width: 8px; }
+        &::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+    }
+}
+
+/* --- 3. Github App Layout --- */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    justify-content: center;
+
+    .card {
+        flex: 1 1 250px; 
+        max-width: 300px;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        transition: transform 0.2s, background 0.2s;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        h2 { font-size: 1.1rem; color: white; }
+        p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.4; }
+
+        .tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            .tag {
+                background: rgba(0, 122, 255, 0.15);
+                color: #0A84FF;
+                padding: 3px 10px;
+                border-radius: 5px;
+                font-size: 10px;
+                font-weight: 700;
+            }
+        }
+
+        .urls {
+            margin-top: auto;
+            display: flex;
+            gap: 1rem;
+            a {
+                text-decoration: none;
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: #0A84FF;
+                &:hover { text-decoration: underline; }
+            }
+        }
+    }
+}
+
+/* --- 4. Notes/Code Window Styling --- */
+.note-window {
+    height: 100%; 
+    
+    pre {
+        background: transparent !important;
+        
+       
+    }
+}
+
+
+/* --- 5. resume ---*/
 

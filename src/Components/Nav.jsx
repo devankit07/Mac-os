@@ -1,6 +1,6 @@
 import DateTime from "./DateTime";
 
-import("./nav.scss");
+
 
 const Nav = () => {
   return (
