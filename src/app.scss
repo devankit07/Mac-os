@@ -1,251 +1,312 @@
-/* --- Global Reset & Root Setup --- */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html, body, #root {
-    height: 100%;
-    width: 100%;
-    overflow: hidden; 
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Helvetica Neue", sans-serif;
+  overflow: hidden;
 }
 
-/* --- Desktop Background Layer --- */
+/* body */
+
 main {
-    height: 100%;
-    width: 100%;
-    background-image: url('mac-wall.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  background: url("mac-wall2.jpg") center / cover no-repeat;
+
+  display: flex;
+  flex-direction: column;
 }
 
-/* --- 1. Top Menubar Styling --- */
+/* nav  */
+
 nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  padding: 0.35rem 0.85rem;
+
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+
+  z-index: 1000;
+
+  .left,
+  .right {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    color: white;
-    padding-inline: 0.85rem;
-    padding-block: 0.35rem;
-    background-color: rgba(0, 0, 0, 0.15); 
-    backdrop-filter: blur(25px) saturate(180%);
-    -webkit-backdrop-filter: blur(25px) saturate(180%);
-    font-size: 13px;
-    font-weight: 500;
-    cursor: default;
-    z-index: 1000;
+    gap: 1.2rem;
 
-    .left, .right {
-        display: flex;
-        gap: 1.2rem;
-        align-items: center;
-
-        .apple-icon img {
-            width: 16px;
-            filter: invert(1); 
-        }
-
-        .nav-icon img {
-            width: 18px;
-            filter: invert(1);
-        }
-
-        .nav-item p {
-            cursor: pointer;
-            &:hover { opacity: 0.7; }
-        }
+    img {
+      width: 18px;
+      filter: invert(1);
     }
+
+    p {
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
 }
 
-/* --- 2. Reusable Mac Window Component --- */
+/*window base */
+
 .window {
-    background-color: rgba(28, 28, 28, 0.75); 
-    backdrop-filter: blur(40px) saturate(200%); 
-    -webkit-backdrop-filter: blur(40px) saturate(200%);
-    
-    height: 100%;
-    width: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 0.5px rgba(0, 0, 0, 0.2); 
-    color: rgba(255, 255, 255, 0.9);
+  height: 100%;
+  width: 100%;
 
-    /* Draggable Title Bar */
-    .nav { 
-        height: 38px; 
-        width: 100%;
-        padding-inline: 0.85rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-        background: rgba(255, 255, 255, 0.05); 
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        cursor: grab;
-        position: relative;
+  display: flex;
+  flex-direction: column;
 
-        .dots {
-            display: flex;
-            gap: 8px; 
-            z-index: 5;
+  background: rgba(28, 28, 28, 0.75);
 
-            .dot {
-                height: 12px;
-                width: 12px;
-                border-radius: 50%;
-                border: 0.5px solid rgba(0, 0, 0, 0.15); 
-            }
-            .red { background-color: #FF5F57; cursor: pointer; }
-            .yellow { background-color: #FEBC2E; }
-            .green { background-color: #28C840; }
-        }
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
 
-        .title {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 13px;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.4);
-            white-space: nowrap;
-        }
-    }
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 
-    .main-content {
-        height: calc(100% - 38px);
-        overflow-y: auto;
-        
-        &::-webkit-scrollbar { width: 8px; }
-        &::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-        }
-    }
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+
+  color: rgba(255, 255, 255, 0.9);
+
+  overflow: hidden;
 }
 
-/* --- 3. Github App Layout --- */
+/* WINDOW HEADER  */
+
+.window .nav {
+  height: 38px;
+
+  flex-shrink: 0;
+
+  padding: 0 0.85rem;
+
+  display: flex;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+  cursor: grab;
+
+  position: relative;
+}
+
+.window .nav .dots {
+  display: flex;
+  gap: 8px;
+}
+
+.window .nav .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.red {
+  background: #ff5f57;
+  cursor: pointer;
+}
+
+.yellow {
+  background: #febc2e;
+}
+
+.green {
+  background: #28c840;
+}
+
+.window .nav .title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* window main-content */
+
+.window .main-content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+
+.window .main-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.window .main-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+/* github */
+
 .cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 
-    .card {
-        flex: 1 1 250px; 
-        max-width: 300px;
-        background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 1.2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-        transition: transform 0.2s, background 0.2s;
+  gap: 1.5rem;
+  padding: 1.5rem;
 
-        &:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
-        }
-
-        img {
-            width: 100%;
-            aspect-ratio: 16/9;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        h2 { font-size: 1.1rem; color: white; }
-        p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.4; }
-
-        .tags {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            .tag {
-                background: rgba(0, 122, 255, 0.15);
-                color: #0A84FF;
-                padding: 3px 10px;
-                border-radius: 5px;
-                font-size: 10px;
-                font-weight: 700;
-            }
-        }
-
-        .urls {
-            margin-top: auto;
-            display: flex;
-            gap: 1rem;
-            a {
-                text-decoration: none;
-                font-size: 0.8rem;
-                font-weight: 600;
-                color: #0A84FF;
-                &:hover { text-decoration: underline; }
-            }
-        }
-    }
+  justify-content: center;
 }
 
-/* --- 4. Notes/Code Window Styling --- */
+.card {
+  flex: 1 1 250px;
+  max-width: 300px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+
+  padding: 1.2rem;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.8rem;
+
+  transition: 0.2s;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-4px);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* notes */
+
 .note-window {
-    height: 100%; 
-    
-    pre {
-        background: transparent !important;
-        
-       
-    }
+  height: 100%;
 }
 
+.note-window pre {
+  background: transparent !important;
+  overflow: auto;
+}
 
-/* --- 5. resume ---*/
+/* resume */
+
 .resume-window {
-    height: 100%;
-    width: 100%;
-    overflow: hidden; // PDF viewer ka apna scrollbar hota hai isliye yahan hidden rakhein
-    display: flex;
+  height: 100%;
+  width: 100%;
 
-    embed {
-        height: 100%;
-        width: 100%;
-        border: none;
-        
-        /* Kuch browsers PDF viewer ke upar custom scrollbar allow nahi karte, 
-           par hum width aur height ko parent se sync kar rahe hain. */
-    }
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-window embed {
+  flex: 1;
+
+  width: 100%;
+  height: 100%;
+
+  border: none;
 }
 
 
-/*6 spotify*/
-.spotify-window{
-    height: 100%;
-    width: 100%;
+/*spotify */
+.spotify-window {
+  flex: 1;
 
-    iframe{
-        height: 100%;
-        width: 100%;
-        border: none;
-    }
+  display: flex;
+}
+
+.spotify-window iframe {
+  flex: 1;
+
+  width: 100%;
+  height: 100%;
+
+  border: none;
 }
 
 
-/*7 Cli-[Terminal]*/
 
-.cli-window{
-    height: 100%;
-    overflow: hidden;
-    
-    div[name="react-draggable react-draggable-dragged"]{
-        height: 100%;
-        padding-bottom: 10rem;
-        background-color: transparent !important;
-    }
+/* TERMINAL  */
+
+.cli-window {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
+
+.cli-window > div {
+  flex: 1;
+  overflow: auto;
+  background: transparent !important;
+}
+
+.context-menu {
+  position: fixed;   /* VERY IMPORTANT */
+  background: rgba(30, 30, 30, 0.95);
+  color: white;
+
+  border-radius: 8px;
+  padding: 6px 0;
+
+  min-width: 180px;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+
+  z-index: 9999;
+  font-size: 14px;
+}
+
+.context-menu p {
+  padding: 8px 16px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.context-menu p:hover {
+  background: rgba(255,255,255,0.1);
+}
+.desktop {
+  width: 100vw;
+  height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+

@@ -2,7 +2,7 @@ import DateTime from "./DateTime";
 
 
 
-const Nav = () => {
+const Nav = ({setwindow}) => {
   return (
     <nav>
     <div className="left">
@@ -10,10 +10,21 @@ const Nav = () => {
             <img src="/navbar-icons/apple.svg" alt="apple" />
         </div>
         <div className="nav-item"><p>Ankit</p></div>
-        <div className="nav-item"><p>File</p></div>
-        <div className="nav-item"><p>Edit</p></div>
-        <div className="nav-item"><p>Window</p></div>
-        <div className="nav-item"><p>Terminal</p></div>
+        <div  
+        onClick={() => setwindow((state) => ({ ...state, notes: true }))}
+        className="nav-item"><p>Note</p></div>
+        <div
+        
+        onClick={() => setwindow((state) => ({ ...state, resume: true }))}
+        className="nav-item"><p>Resume</p></div>
+
+        <div 
+        
+        onClick={() => setwindow((state) => ({ ...state, spotify: true }))}
+        className="nav-item"><p>Spotify</p></div>
+        <div
+        onClick={() => setwindow((state) => ({ ...state, cli: true }))}
+        className="nav-item"><p>Terminal</p></div>
 
     </div>
     <div className="right">

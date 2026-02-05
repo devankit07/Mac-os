@@ -4,10 +4,11 @@ const Dock = ({ setwindow }) => {
   return (
     <footer className="dock">
       <div
-      onClick={()=>{
-        window.open("https://calendar.google.com/","_blank")
-      }}
-      className="icon calender">
+        onClick={() => {
+          window.open("https://calendar.google.com/", "_blank");
+        }}
+        className="icon calender"
+      >
         <img src="/doc-icons/calender.svg" alt="calender" />
       </div>
       <div
@@ -22,14 +23,26 @@ const Dock = ({ setwindow }) => {
       >
         <img src="/doc-icons/github.svg" alt="github" />
       </div>
-      <div 
-      onClick={()=>{window.open("https://www.linkedin.com/in/ankit-rathore-98208436a/","_blank")}}
-      className="icon link">
+      <div
+        onClick={() => {
+          window.open(
+            "https://www.linkedin.com/in/ankit-rathore-98208436a/",
+            "_blank",
+          );
+        }}
+        className="icon link"
+      >
         <img src="/doc-icons/link.svg" alt="link" />
       </div>
-      <div 
-      onClick={()=>{window.open("mailto:test@gmail.com","_blank")}}
-      className="icon mail">
+      <div
+        onClick={() =>
+          window.open(
+            "https://mail.google.com/mail/?view=cm&fs=1&to=test@gmail.com",
+            "_blank",
+          )
+        }
+        className="icon mail"
+      >
         <img src="/doc-icons/mail.svg" alt="mail" />
       </div>
       <div

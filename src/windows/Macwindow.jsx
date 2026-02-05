@@ -1,35 +1,41 @@
 import { Rnd } from "react-rnd";
 
-
-const Macwindow = ({children, windowname,  setwindow}) => {
+const Macwindow = ({ children, windowname, setwindow }) => {
   return (
-    <div>
-      <Rnd
+    <Rnd
       default={{
-        height:"25vw",
-        width:"30vw",
-        x:300,
-        y:200
-
+        width: 600,
+        height: 400,
+        x: 300,
+        y: 200,
       }}
-      >
-        <div className="window">
-          <div className="nav">
-            <div className="dots">
-              <div
-              onClick={() => setwindow(state => ({ ...state, [windowname]: false }))}
-              className="dot red"></div>
-              <div className="dot yellow"></div>
-              <div className="dot green"></div>
-            </div>
-            <div className="title">
-              <p>Ankit -zsh</p>
-            </div>
+    lockAspectRatio={windowname === "spotify"}
+    >
+      <div className="window">
+        <div className="nav">
+          <div className="dots">
+            <div
+              onClick={() =>
+                setwindow((state) => ({
+                  ...state,
+                  [windowname]: false,
+                }))
+              }
+              className="dot red"
+            ></div>
+
+            <div className="dot yellow"></div>
+            <div className="dot green"></div>
           </div>
-          <div className="main-content">{children}</div>
+
+          <div className="title">
+            <p>{windowname}</p>
+          </div>
         </div>
-      </Rnd>
-    </div>
+
+        <div className="main-content">{children}</div>
+      </div>
+    </Rnd>
   );
 };
 
