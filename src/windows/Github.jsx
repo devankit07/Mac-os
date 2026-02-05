@@ -33,9 +33,9 @@ const Gitcard = ({
   );
 };
 
-const Github = () => {
+const Github = ({ windowname,setwindow }) => {
   return (
-    <Macwindow title="Ankit - GitHub">
+    <Macwindow title="Ankit - GitHub" windowname={windowname} setwindow={setwindow}>
       <div className="cards">
         {GithubData.map((project) => (
           <Gitcard key={project.id} data={project} />

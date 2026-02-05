@@ -1,10 +1,10 @@
 import Macwindow from "./Macwindow";
 
-const Resume = () => {
+const Resume = ({ windowname, setwindow }) => {
   return (
-    <Macwindow>
+    <Macwindow windowname={windowname} setwindow={setwindow}>
         <div className="resume-window">
-      <embed src="/resume.pdf" frameborder="0"></embed>
+      <embed src="/resume.pdf" frameBorder="0"></embed>
         </div>
     </Macwindow>
   )

@@ -1,7 +1,7 @@
 import { Rnd } from "react-rnd";
 
 
-const Macwindow = ({children}) => {
+const Macwindow = ({children, windowname,  setwindow}) => {
   return (
     <div>
       <Rnd
@@ -16,7 +16,9 @@ const Macwindow = ({children}) => {
         <div className="window">
           <div className="nav">
             <div className="dots">
-              <div className="dot red"></div>
+              <div
+              onClick={() => setwindow(state => ({ ...state, [windowname]: false }))}
+              className="dot red"></div>
               <div className="dot yellow"></div>
               <div className="dot green"></div>
             </div>
