@@ -207,4 +207,31 @@ nav {
 
 
 /* --- 5. resume ---*/
+.resume-window {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; // PDF viewer ka apna scrollbar hota hai isliye yahan hidden rakhein
+    display: flex;
 
+    embed {
+        height: 100%;
+        width: 100%;
+        border: none;
+        
+        /* Kuch browsers PDF viewer ke upar custom scrollbar allow nahi karte, 
+           par hum width aur height ko parent se sync kar rahe hain. */
+    }
+}
+
+
+/*6 spotify*/
+.spotify-window{
+    height: 100%;
+    width: 100%;
+
+    iframe{
+        height: 100%;
+        width: 100%;
+        border: none;
+    }
+}

@@ -3,6 +3,8 @@ import Dock from "./Components/Dock";
 import Nav from "./Components/Nav";
 import Notes from "./Components/Notes";
 import Github from "./windows/Github";
+import Resume from "./windows/Resume";
+import Spotify from "./windows/Spotify";
 
 const App = () => {
   return (
@@ -12,6 +14,8 @@ const App = () => {
 
       <Github />
       <Notes />
+      <Resume/>
+      <Spotify/>
     </main>
   );
 };

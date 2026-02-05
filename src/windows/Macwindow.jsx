@@ -1,5 +1,6 @@
 import { Rnd } from "react-rnd";
 
+
 const Macwindow = ({children}) => {
   return (
     <div>
