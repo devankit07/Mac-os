@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DateTime from "./DateTime";
 
-const Nav = ({ setwindow, onWallpaperChange, wallpapers }) => {
+const Nav = ({ onWallpaperChange, wallpapers }) => {
   const [showWallMenu, setShowWallMenu] = useState(false);
 
   return (
@@ -13,13 +13,6 @@ const Nav = ({ setwindow, onWallpaperChange, wallpapers }) => {
         <div className="nav-item">
           <p>Ankit</p>
         </div>
-        <div
-          onClick={() => setwindow((s) => ({ ...s, notes: true }))}
-          className="nav-item"
-        >
-          <p>Note</p>
-        </div>
-
         <div className="nav-item" style={{ position: "relative" }}>
           <p
             onClick={() => setShowWallMenu(!showWallMenu)}

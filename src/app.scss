@@ -1,11 +1,14 @@
-/* --- 1. GLOBAL & RESET --- */
+/*  GLOBAL & RESET */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
@@ -13,41 +16,92 @@ html, body, #root {
   background: #000; /* Fallback */
 }
 
-/* --- 2. DESKTOP CORE --- */
+
+/* DESKTOP CORE  */
+
 .desktop {
   width: 100vw;
   height: 100vh;
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
   position: relative;
   overflow: hidden;
+
   /* Smooth Wallpaper Change */
-  transition: background-image 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+  transition: background-image 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.3s ease;
 }
 
-/* --- 3. NAVIGATION BAR --- */
+.desktop-icons-container {
+  position: absolute;
+  top: 60px;
+  right: 30px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: flex-end;
+
+  z-index: 5;
+}
+
+.desktop-item {
+  width: 85px;
+  margin-bottom: 10px;
+
+  padding: 5px;
+  border-radius: 6px;
+
+  transition: background 0.2s;
+}
+
+.desktop-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.desktop-item span {
+  display: block;
+  width: 100%;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* NAVIGATION BAR */
+
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   width: 100%;
   padding: 0.35rem 0.85rem;
+
   color: white;
   font-size: 13px;
   font-weight: 500;
+
   background: rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(25px) saturate(180%);
+
   z-index: 1000;
 }
 
-nav .left, nav .right {
+nav .left,
+nav .right {
   display: flex;
   align-items: center;
-  gap: 1.5rem; /* Better spacing */
+  gap: 1.5rem;
 }
 
-nav .left { position: relative; } /* For Dropdown Anchor */
+nav .left {
+  position: relative;
+}
 
 nav img {
   width: 18px;
@@ -59,32 +113,45 @@ nav p {
   transition: 0.2s;
 }
 
-nav p:hover { opacity: 0.7; }
+nav p:hover {
+  opacity: 0.7;
+}
 
-/* --- 4. DROPDOWNS & MENUS --- */
+
+/* DROPDOWNS & MENUS  */
+
 .nav-dropdown {
   position: absolute;
-  top: 35px;
+  top: 32px;
   left: 0;
-  background: rgba(30, 30, 30, 0.75);
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 5px;
+
   min-width: 150px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  z-index: 9999;
+  padding: 5px;
+
   display: flex;
   flex-direction: column;
+
+  background: rgba(25, 25, 25, 0.8);
+  backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  z-index: 9999;
 }
 
 .dropdown-item {
   padding: 8px 12px;
   border-radius: 5px;
+
   cursor: pointer;
+
   font-size: 13px;
   color: white;
   text-align: left;
+
   transition: background 0.2s;
 }
 
@@ -92,16 +159,24 @@ nav p:hover { opacity: 0.7; }
   background: rgba(0, 122, 255, 0.8);
 }
 
+
+/* Context Menu */
+
 .context-menu {
   position: fixed;
+
+  min-width: 180px;
+  padding: 6px 0;
+
   background: rgba(30, 30, 30, 0.95);
   color: white;
+
   border-radius: 8px;
-  padding: 6px 0;
-  min-width: 180px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-  z-index: 9999;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+
   font-size: 14px;
+  z-index: 9999;
 }
 
 .context-menu p {
@@ -109,17 +184,25 @@ nav p:hover { opacity: 0.7; }
   cursor: pointer;
 }
 
-.context-menu p:hover { background: rgba(255,255,255,0.1); }
+.context-menu p:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
 
-/* --- 5. WINDOW SYSTEM --- */
+
+/* WINDOW SYSTEM */
+
 .window {
   display: flex;
   flex-direction: column;
+
   background: rgba(28, 28, 28, 0.75);
   backdrop-filter: blur(40px) saturate(200%);
+
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.15);
+
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+
   color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
 }
@@ -127,49 +210,83 @@ nav p:hover { opacity: 0.7; }
 .window .nav {
   height: 38px;
   padding: 0 0.85rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  cursor: grab;
-  position: relative;
+
   display: flex;
   align-items: center;
+
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+  cursor: grab;
+  position: relative;
 }
 
-.window .nav .dots { display: flex; gap: 8px; }
-.window .nav .dot { width: 12px; height: 12px; border-radius: 50%; }
+.window .nav .dots {
+  display: flex;
+  gap: 8px;
+}
 
-.red { background: #ff5f57; cursor: pointer; }
-.yellow { background: #febc2e; }
-.green { background: #28c840; }
+.window .nav .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
 
-/* --- WINDOW SYSTEM MASTER FIX --- */
+.red {
+  background: #ff5f57;
+  cursor: pointer;
+}
+
+.yellow {
+  background: #febc2e;
+}
+
+.green {
+  background: #28c840;
+}
+
+
+/*  WINDOW MASTER CONTAINER  */
 
 .mac-window-container {
   display: flex;
   flex-direction: column;
+
   width: 100%;
-  height: 100%; /* Important: Takes full height from Rnd */
+  height: 100%;
+
   background: rgba(28, 28, 28, 0.75);
   backdrop-filter: blur(40px) saturate(200%);
   -webkit-backdrop-filter: blur(40px) saturate(200%);
+
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.15);
+
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+
   color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
+
   position: relative;
 }
 
+
+/* Window Nav Bar */
+
 .window-nav-bar {
   height: 38px;
-  min-height: 38px; /* Strict height */
+  min-height: 38px;
+
   padding: 0 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  cursor: grab;
+
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+  cursor: grab;
   position: relative;
 
   .window-dots {
@@ -182,18 +299,29 @@ nav p:hover { opacity: 0.7; }
       height: 12px;
       border-radius: 50%;
       cursor: pointer;
-      &.red { background: #ff5f57; }
-      &.yellow { background: #febc2e; }
-      &.green { background: #28c840; }
+
+      &.red {
+        background: #ff5f57;
+      }
+
+      &.yellow {
+        background: #febc2e;
+      }
+
+      &.green {
+        background: #28c840;
+      }
     }
   }
 
   .window-title {
     position: absolute;
-    width: 100%;
     left: 0;
+    width: 100%;
+
     text-align: center;
-    pointer-events: none; /* Dragging block nahi karega */
+    pointer-events: none;
+
     p {
       font-size: 13px;
       font-weight: 500;
@@ -203,64 +331,104 @@ nav p:hover { opacity: 0.7; }
   }
 }
 
+
+/* Window Main Content */
+
 .window-main-content {
-  flex: 1; /* Occupies all remaining space */
+  flex: 1;
+
   width: 100%;
-  height: calc(100% - 38px); /* Height minus nav bar */
-  overflow-y: auto; 
+  height: calc(100% - 38px);
+
+  overflow-y: auto;
   overflow-x: hidden;
-  padding: 15px;
+
   background: transparent;
 
-  /* Smooth Scrolling */
   scroll-behavior: smooth;
 
-  /* Content inside should also respect the container */
   & > * {
     max-width: 100%;
   }
 }
 
-/* Custom Scrollbar for Windows */
+
+/* Scrollbar (Window) */
+
 .window-main-content::-webkit-scrollbar {
   width: 8px;
 }
+
 .window-main-content::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .window-main-content::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 10px;
+
   &:hover {
     background: rgba(255, 255, 255, 0.25);
   }
 }
-/* --- 6. COMPONENTS SPECIFIC --- */
-/* Github Cards */
-.cards { display: flex; flex-wrap: wrap; gap: 1.5rem; padding: 1.5rem; justify-content: center; }
-.card { 
-  flex: 1 1 250px; 
-  background: rgba(255, 255, 255, 0.05); 
-  border-radius: 12px; 
-  padding: 1.2rem; 
-  transition: 0.2s; 
-}
-.card:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.1); }
 
-/* Scrollbar Fix */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 10px; }
+
+/*  COMPONENTS  */
+
+/* Github Cards */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  padding: 1.5rem;
+  justify-content: center;
+}
+
+.card {
+  flex: 1 1 250px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border-radius: 12px;
+  padding: 1.2rem;
+
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Global Scrollbar */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+
+/* Dock */
 
 .dock-item {
   position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
 
   img {
     width: 50px;
-    transition: transform 0.2s ease;
     cursor: pointer;
+
+    transition: transform 0.2s ease;
 
     &:hover {
       transform: scale(1.2) translateY(-10px);
@@ -270,42 +438,40 @@ nav p:hover { opacity: 0.7; }
   .dot {
     width: 4px;
     height: 4px;
+
     background: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
+
     margin-top: 4px;
-    opacity: 0; // Default hidden
+    opacity: 0;
   }
 
   .dot.active {
-    opacity: 1; // Jab app khuli ho tab dikhega
+    opacity: 1;
   }
 }
 
-.nav-dropdown {
-  position: absolute;
-  top: 32px; /* Navbar ki height ke niche */
-  left: 0;
-  background: rgba(25, 25, 25, 0.8); 
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  padding: 5px;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column; /* Items ek ke niche ek */
-}
 
-/* Specific fixes for App Containers */
-.resume-window, .spotify-window {
+/* App Containers */
+
+.resume-window,
+.spotify-window {
   width: 100%;
   height: 100%;
+
   display: flex;
   flex-direction: column;
 }
 
-/* Taaki Resume aur Spotify ke corners window ke saath match karein */
+
+/* Override Padding for Media */
+
 .window-main-content {
-  padding: 0 !important; /* PDF aur Spotify ke liye padding zero honi chahiye */
+  padding: 0 !important;
+
   display: flex;
   flex-direction: column;
 }
+
+
+/*done*/

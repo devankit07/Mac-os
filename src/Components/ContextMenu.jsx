@@ -1,12 +1,26 @@
-const ContextMenu = ({ x, y, onAction }) => {
+const ContextMenu = ({ x, y, onAction, targetId }) => {
+
+  const isNearRightEdge = window.innerWidth - x < 180;
   return (
-    <div className="context-menu" style={{ top: y, left: x }}>
-      <p onClick={() => onAction("refresh")}>🔄 Refresh Desktop</p>
-      <p onClick={() => onAction("clear")}>🧹 Clear All Windows</p>
-      <hr style={{ border: "0.5px solid rgba(255,255,255,0.1)" }} />
-      <p onClick={() => alert("💻 MacOS Clone by Ankit")}>ℹ️ About This Mac</p>
+    <div className="context-menu" style={{ 
+        top: y, 
+        left: isNearRightEdge ? x - 160 : x, // Edge check logic
+        position: 'fixed' // Absolute ki jagah fixed use karein
+      }}>
+      {targetId ? (
+        <>
+          <p onClick={() => onAction("renameFolder", targetId)}>✏️ Rename Folder</p>
+          <p onClick={() => onAction("deleteFolder", targetId)} style={{color: 'red'}}>🗑️ Delete Folder</p>
+        </>
+      ) : (
+        <>
+          <p onClick={() => onAction("newFolder")}>📁 New Folder</p>
+          <p onClick={() => onAction("refresh")}>🔄 Refresh Desktop</p>
+          <p onClick={() => onAction("clear")}>🧹 Clear Windows</p>
+        </>
+      )}
     </div>
   );
 };
-export default ContextMenu;
 
+export default ContextMenu;

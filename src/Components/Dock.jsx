@@ -1,22 +1,50 @@
 import "../dock.scss";
 
 const Dock = ({ setwindow, windowState, playOpen, playClick }) => {
-  
-  // Universal click handler
   const handleAppClick = (name, isExternal = false, url = "") => {
     if (isExternal) {
       playClick();
       window.open(url, "_blank");
     } else {
-      // Sound logic: Agar band hai toh open sound, warna click sound
-      if (!windowState[name]) playOpen(); else playClick();
+      if (!windowState[name]) playOpen();
+      else playClick();
       setwindow((state) => ({ ...state, [name]: true }));
     }
   };
 
   return (
     <footer className="dock">
-      <div className="icon calender" onClick={() => handleAppClick("", true, "https://calendar.google.com/")}>
+      <div
+  className="icon vscode"
+  onClick={() =>
+    handleAppClick(
+      "",
+      true,
+      "https://vscode.dev"
+    )
+  }
+>
+  <img src="/doc-icons/vs-code.webp" alt="vscode" />
+</div>
+
+
+      <div
+        className="icon weather"
+        onClick={() =>
+          handleAppClick(
+            "",
+            true,
+            "https://www.google.com/search?q=weather+india",
+          )
+        }
+      >
+        <img src="/doc-icons/weather.webp" alt="weather" />
+      </div>
+
+      <div
+        className="icon calender"
+        onClick={() => handleAppClick("", true, "https://calendar.google.com/")}
+      >
         <img src="/doc-icons/calender.svg" alt="calendar" />
       </div>
 
@@ -28,11 +56,29 @@ const Dock = ({ setwindow, windowState, playOpen, playClick }) => {
         <img src="/doc-icons/github.svg" alt="github" />
       </div>
 
-      <div className="icon link" onClick={() => handleAppClick("", true, "https://www.linkedin.com/in/ankit-rathore-98208436a/")}>
+      <div
+        className="icon link"
+        onClick={() =>
+          handleAppClick(
+            "",
+            true,
+            "https://www.linkedin.com/in/ankit-rathore-98208436a/",
+          )
+        }
+      >
         <img src="/doc-icons/link.svg" alt="link" />
       </div>
 
-      <div className="icon mail" onClick={() => handleAppClick("", true, "https://mail.google.com/mail/?view=cm&fs=1&to=test@gmail.com")}>
+      <div
+        className="icon mail"
+        onClick={() =>
+          handleAppClick(
+            "",
+            true,
+            "https://mail.google.com/mail/?view=cm&fs=1&to=test@gmail.com",
+          )
+        }
+      >
         <img src="/doc-icons/mail.svg" alt="mail" />
       </div>
 

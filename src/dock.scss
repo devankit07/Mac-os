@@ -43,6 +43,15 @@
   .mail { 
     background: linear-gradient(180deg, #1E9AFE 0%, #1FB2FE 100%); 
   }
+  .vscode { 
+  background-color: #2C2C32; // VS Code ka dark grey background
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.weather { 
+  background: linear-gradient(180deg, #5AC8FA 0%, #007AFF 100%); // Weather ka sky blue gradient
+  border: 1px solid #4a90e2;
+}
 
  .icon:hover{
         transform: scale(1.3) translateY(-18%);

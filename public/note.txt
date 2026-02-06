@@ -1,105 +1,68 @@
-/**
- * @file: profile.config.ts
- * @author: Engineering Portfolio
- * @summary: A high-performance full-stack engineer.
- */
+# ANKIT [Rathore]
+### Full-Stack Software Engineer | Creative Developer
+📍 **Delhi, India** | 📧 **ankit.dev@email.com** | 📱 **+91-XXXXX-XXXXX**
+🔗 [GitHub](https://github.com/ankit-projects) | 🔗 [Portfolio](https://your-portfolio-link.com) | 🔗 [LinkedIn](https://linkedin.com/in/ankit-dev)
 
-// --------------------------------------------------
-// 1. CORE DEPENDENCIES & SKILLS
-// --------------------------------------------------
+---
 
-const TECH_STACK = {
-  frontend: [
-    "React.js",    // 100%
-    "Next.js",     // 95%
-    "TailwindCSS", // 90%
-    "Three.js",    // 70%
-  ],
-  backend: [
-    "Node.js",     // 90%
-    "PostgreSQL",  // 85%
-    "Redis",       // 75%
-    "Docker",      // 80%
-  ],
-  tools: ["AWS", "Git", "Figma", "Linux"]
-};
+## 🚀 PROFESSIONAL SUMMARY
+High-performance **Full-Stack Engineer** jise scalable web applications aur interactive user interfaces banane ka junoon hai. React.js aur Node.js ecosystem mein expert, jise modern web animation (Framer Motion/Three.js) aur system design ki gehri samajh hai. [cite_start]Maine **macOS clone** jaise complex frontend architectures design kiye hain jo high-fidelity UX aur performance deliver karte hain. [cite: 5, 7]
 
-// --------------------------------------------------
-// 2. EXPERIENCE LOG (Reverse Chronological)
-// --------------------------------------------------
+---
 
-class ProfessionalHistory {
-  
-  /** * CURRENT ROLE
-   * @period 2023 - Present 
-   */
-  public async TechFlow_Systems(): Promise<Impact> {
-    const role = "Senior Full-Stack Engineer";
-    
-    // Key Achievements
-    const optimized = await api.optimize({ strategy: "Redis Caching" });
-    const latencyReduction = "40%";
-    
-    const leadership = this.mentor(["Jr. Dev 1", "Jr. Dev 2", "Jr. Dev 3"]);
-    const architecture = "Monolith -> Microservices Migration";
-    
-    return { role, optimized, architecture, leadership };
-  }
+## 🛠 TECHNICAL STACK
+* [cite_start]**Frontend:** React.js (Expert), Next.js, Tailwind CSS, Framer Motion, Three.js (3D), Redux [cite: 9]
+* [cite_start]**Backend:** Node.js, Express.js, PostgreSQL, Redis (Caching), RESTful APIs [cite: 9]
+* [cite_start]**DevOps & Tools:** Docker, AWS (S3/EC2), Git, Linux Terminal, Figma, Postman [cite: 9]
+* [cite_start]**Specialty:** UI Architecture, Performance Optimization, State Management [cite: 13]
 
-  /** * PREVIOUS ROLE
-   * @period 2021 - 2023
-   */
-  public PixelPerfect_Studios(): void {
-    this.role = "Frontend Developer";
-    this.focus = "High-Fidelity Animations";
-    
-    // Implemented GSAP scroll-triggers for 15+ clients
-    // Improved Lighthouse Performance Scores: 65 -> 98
-  }
-}
+---
 
-// --------------------------------------------------
-// 3. COMPETITIVE ACHIEVEMENTS
-// --------------------------------------------------
+## 💻 FEATURED PROJECTS
 
-interface HackathonWin {
-  rank: number;
-  event: string;
-  project: string;
-}
+### 1. MacOS Pro Portfolio (React.js & Draggable Logic)
+* Ek fully functional desktop interface banaya jo macOS Ventura se inspired hai.
+* **Highlights:** Custom window management system, functional dock, dynamic theme/wallpaper switching, aur persistent folder system.
+* **Persistence:** `localStorage` integration taaki users ke folders aur positions reload ke baad bhi save rahein.
 
-const trophyCabinet: HackathonWin[] = [
-  {
-    rank: 1,
-    event: "Global AI Hackathon 2024",
-    project: "EcoVision (Computer Vision Waste Segregation)",
-    // Prize: $5,000
-  },
-  {
-    rank: 500, // Top 500 Global
-    event: "Google Code Jam 2023",
-    project: "Algorithm Optimization (Dynamic Programming)",
-  }
-];
+### 2. Real-time Collaboration Tool (Socket.io)
+* Multiple users ke liye live workspace banaya jisme concurrent editing aur chat support hai.
+* [cite_start]**Impact:** Latency ko 40% tak kam kiya Redis caching ka use karke. [cite: 13, 21]
 
-// --------------------------------------------------
-// 4. ACADEMIC BACKGROUND
-// --------------------------------------------------
+---
 
-const education = new Map<string, string>([
-  ["Stanford University", "MS Computer Science (3.9 GPA)"],
-  ["MIT World Peace Univ", "B.Tech Information Tech (8.8 CGPA)"]
-]);
+## 💼 EXPERIENCE LOG
 
-export default new ProfessionalHistory();
+### Senior Full-Stack Developer | Freelance / Self-Employed
+*2023 – Present*
+* [cite_start]Complex SaaS dashboards aur high-fidelity landing pages deliver kiye. [cite: 12]
+* [cite_start]Lighthouse performance scores ko 65 se 98 tak improve kiya image optimization aur lazy loading implement karke. [cite: 13]
+* Monolith applications ko Microservices architecture mein migrate karne mein maharat.
 
+### Frontend Developer Intern | TechFlow Systems
+*2021 – 2023*
+* [cite_start]React hooks aur Context API ka use karke reusable UI components library banayi. [cite: 16]
+* [cite_start]Unit testing aur code coverage ko 40% tak badhaya. [cite: 16]
+
+---
+
+## 🏆 ACHIEVEMENTS
+* **Global AI Hackathon 2024:** Rank #1 (Project: Computer Vision based waste segregation).
+* **Google Code Jam:** Top 500 Global rankers mein shamil.
+* **Open Source:** 10+ custom React components contribute kiye community ke liye.
+
+---
+
+## 🎓 ACADEMIC BACKGROUND
+* [cite_start]**B.Tech in Computer Science** – ABC Institute of Technology [cite: 23]
+* **Specialization:** Data Structures, Algorithm Optimization, Web Systems.
+
+---
 
 ```bash
-# TERMINAL OUTPUT
-# ---------------------------------------
+# TERMINAL STATUS
 $ user --status
 > Status: Open to Opportunities
 > Location: Global / Remote
 > Loading Assets... [||||||||||] 100%
 > Ready.
-```
