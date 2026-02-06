@@ -1,7 +1,6 @@
 import GithubData from "../assets/github.json";
 import Macwindow from "./Macwindow";
 
-
 const Gitcard = ({
   data = {
     id: 1,
@@ -33,9 +32,13 @@ const Gitcard = ({
   );
 };
 
-const Github = ({ windowname,setwindow }) => {
+const Github = ({ windowname, setwindow }) => {
   return (
-    <Macwindow title="Ankit - GitHub" windowname={windowname} setwindow={setwindow}>
+    <Macwindow
+      title="Ankit - GitHub"
+      windowname={windowname}
+      setwindow={setwindow}
+    >
       <div className="cards">
         {GithubData.map((project) => (
           <Gitcard key={project.id} data={project} />

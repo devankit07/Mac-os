@@ -1,16 +1,25 @@
 const ContextMenu = ({ x, y, onAction, targetId }) => {
-
   const isNearRightEdge = window.innerWidth - x < 180;
   return (
-    <div className="context-menu" style={{ 
-        top: y, 
-        left: isNearRightEdge ? x - 160 : x, // Edge check logic
-        position: 'fixed' // Absolute ki jagah fixed use karein
-      }}>
+    <div
+      className="context-menu"
+      style={{
+        top: y,
+        left: isNearRightEdge ? x - 160 : x,
+        position: "fixed",
+      }}
+    >
       {targetId ? (
         <>
-          <p onClick={() => onAction("renameFolder", targetId)}>✏️ Rename Folder</p>
-          <p onClick={() => onAction("deleteFolder", targetId)} style={{color: 'red'}}>🗑️ Delete Folder</p>
+          <p onClick={() => onAction("renameFolder", targetId)}>
+            ✏️ Rename Folder
+          </p>
+          <p
+            onClick={() => onAction("deleteFolder", targetId)}
+            style={{ color: "red" }}
+          >
+            🗑️ Delete Folder
+          </p>
         </>
       ) : (
         <>

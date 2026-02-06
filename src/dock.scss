@@ -44,12 +44,12 @@
     background: linear-gradient(180deg, #1E9AFE 0%, #1FB2FE 100%); 
   }
   .vscode { 
-  background-color: #2C2C32; // VS Code ka dark grey background
+  background-color: #2C2C32; 
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .weather { 
-  background: linear-gradient(180deg, #5AC8FA 0%, #007AFF 100%); // Weather ka sky blue gradient
+  background: linear-gradient(180deg, #5AC8FA 0%, #007AFF 100%); 
   border: 1px solid #4a90e2;
 }
 
@@ -63,10 +63,10 @@
     }
 
     img {
-    width: 65%;   /* Icon image size */
+    width: 65%;  
     height: 65%;
     object-fit: contain;
-    pointer-events: none; /* Click sirf div par jaye */
+    pointer-events: none; 
   }
 }
 

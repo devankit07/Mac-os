@@ -12,10 +12,9 @@ const Macwindow = ({ children, windowname, setwindow }) => {
       minWidth={350}
       minHeight={250}
       bounds=".desktop"
-      dragHandleClassName="window-nav-bar" // Specific class for dragging
+      dragHandleClassName="window-nav-bar"
       lockAspectRatio={windowname === "spotify"}
-      // Critical for layout stability:
-      style={{ zIndex: 100, display: "flex", overflow: "hidden" }} 
+      style={{ zIndex: 100, display: "flex", overflow: "hidden" }}
     >
       <div className="mac-window-container">
         {/* Title Bar / Nav */}
@@ -31,9 +30,7 @@ const Macwindow = ({ children, windowname, setwindow }) => {
         </div>
 
         {/* Content Area */}
-        <div className="window-main-content">
-          {children}
-        </div>
+        <div className="window-main-content">{children}</div>
       </div>
     </Rnd>
   );

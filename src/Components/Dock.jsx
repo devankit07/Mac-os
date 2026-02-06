@@ -15,18 +15,11 @@ const Dock = ({ setwindow, windowState, playOpen, playClick }) => {
   return (
     <footer className="dock">
       <div
-  className="icon vscode"
-  onClick={() =>
-    handleAppClick(
-      "",
-      true,
-      "https://vscode.dev"
-    )
-  }
->
-  <img src="/doc-icons/vs-code.webp" alt="vscode" />
-</div>
-
+        className="icon vscode"
+        onClick={() => handleAppClick("", true, "https://vscode.dev")}
+      >
+        <img src="/doc-icons/vs-code.webp" alt="vscode" />
+      </div>
 
       <div
         className="icon weather"
