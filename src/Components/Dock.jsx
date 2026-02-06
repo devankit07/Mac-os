@@ -1,67 +1,50 @@
 import "../dock.scss";
 
-const Dock = ({ setwindow }) => {
+const Dock = ({ setwindow, windowState, playOpen, playClick }) => {
+  
+  // Universal click handler
+  const handleAppClick = (name, isExternal = false, url = "") => {
+    if (isExternal) {
+      playClick();
+      window.open(url, "_blank");
+    } else {
+      // Sound logic: Agar band hai toh open sound, warna click sound
+      if (!windowState[name]) playOpen(); else playClick();
+      setwindow((state) => ({ ...state, [name]: true }));
+    }
+  };
+
   return (
     <footer className="dock">
-      <div
-        onClick={() => {
-          window.open("https://calendar.google.com/", "_blank");
-        }}
-        className="icon calender"
-      >
-        <img src="/doc-icons/calender.svg" alt="calender" />
-      </div>
-      <div
-        onClick={() => setwindow((state) => ({ ...state, cli: true }))}
-        className="icon cli"
-      >
-        <img src="/doc-icons/cli.svg" alt="cli" />
-      </div>
-      <div
-        onClick={() => setwindow((state) => ({ ...state, github: true }))}
-        className="icon github"
-      >
-        <img src="/doc-icons/github.svg" alt="github" />
-      </div>
-      <div
-        onClick={() => {
-          window.open(
-            "https://www.linkedin.com/in/ankit-rathore-98208436a/",
-            "_blank",
-          );
-        }}
-        className="icon link"
-      >
-        <img src="/doc-icons/link.svg" alt="link" />
-      </div>
-      <div
-        onClick={() =>
-          window.open(
-            "https://mail.google.com/mail/?view=cm&fs=1&to=test@gmail.com",
-            "_blank",
-          )
-        }
-        className="icon mail"
-      >
-        <img src="/doc-icons/mail.svg" alt="mail" />
-      </div>
-      <div
-        onClick={() => setwindow((state) => ({ ...state, notes: true }))}
-        className="icon note"
-      >
-        <img src="/doc-icons/note.svg" alt="note" />
-      </div>
-      <div
-        onClick={() => setwindow((state) => ({ ...state, resume: true }))}
-        className="icon pdf"
-      >
-        <img src="/doc-icons/pdf.svg" alt="pdf" />
+      <div className="icon calender" onClick={() => handleAppClick("", true, "https://calendar.google.com/")}>
+        <img src="/doc-icons/calender.svg" alt="calendar" />
       </div>
 
-      <div
-        onClick={() => setwindow((state) => ({ ...state, spotify: true }))}
-        className="icon spotify"
-      >
+      <div className="icon cli" onClick={() => handleAppClick("cli")}>
+        <img src="/doc-icons/cli.svg" alt="cli" />
+      </div>
+
+      <div className="icon github" onClick={() => handleAppClick("github")}>
+        <img src="/doc-icons/github.svg" alt="github" />
+      </div>
+
+      <div className="icon link" onClick={() => handleAppClick("", true, "https://www.linkedin.com/in/ankit-rathore-98208436a/")}>
+        <img src="/doc-icons/link.svg" alt="link" />
+      </div>
+
+      <div className="icon mail" onClick={() => handleAppClick("", true, "https://mail.google.com/mail/?view=cm&fs=1&to=test@gmail.com")}>
+        <img src="/doc-icons/mail.svg" alt="mail" />
+      </div>
+
+      <div className="icon note" onClick={() => handleAppClick("notes")}>
+        <img src="/doc-icons/note.svg" alt="note" />
+      </div>
+
+      <div className="icon pdf" onClick={() => handleAppClick("resume")}>
+        <img src="/doc-icons/pdf.svg" alt="resume" />
+      </div>
+
+      <div className="icon spotify" onClick={() => handleAppClick("spotify")}>
         <img src="/doc-icons/spotify.svg" alt="spotify" />
       </div>
     </footer>
