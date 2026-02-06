@@ -5,12 +5,12 @@ import Dock from "./Dock";
 import { useAudio } from "../UseAudio";
 
 import Github from "../windows/Github";
-import Notes from "../Components/Notes";
+import Notes from "./Notes";
 import Resume from "../windows/Resume";
 import Cli from "../windows/Cli";
 import Spotify from "../windows/Spotify";
 
-const MacOS = () => {
+const Main = () => {
   const playClick = useAudio("/sounds/click.mp3");
   const playOpen = useAudio("/sounds/open.mp3");
   const playClose = useAudio("/sounds/close.mp3");
@@ -152,4 +152,4 @@ const MacOS = () => {
   );
 };
 
-export default MacOS;
+export default Main;

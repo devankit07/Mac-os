@@ -1,10 +1,11 @@
 import "./app.scss";
-import MacOS from "./Components/MacOS"; 
+import Main from "./Components/Main";
+
 
 const App = () => {
   return (
     <div className="app-container">
-      <MacOS />
+     <Main/>
     </div>
   );
 };
