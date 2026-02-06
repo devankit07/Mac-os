@@ -1,62 +1,18 @@
 import { useState, useEffect } from "react";
 import ContextMenu from "./ContextMenu";
 
-const Desktop = ({ children }) => {
-
-  const [menu, setMenu] = useState({
-    visible: false,
-    x: 0,
-    y: 0,
-  });
-
-  const [wallpaper, setWallpaper] = useState(
-    "/mac-wall2.jpg" // default image
-  );
+const Desktop = ({ children, wallpaper, isRefreshing, onAction }) => {
+  const [menu, setMenu] = useState({ visible: false, x: 0, y: 0 });
 
   const handleRightClick = (e) => {
     e.preventDefault();
-
-    setMenu({
-      visible: true,
-      x: e.clientX,
-      y: e.clientY,
-    });
-  };
-
-  // Menu Action Handler
-  const handleAction = (type) => {
-
-    if (type === "refresh") {
-      window.location.reload();
-    }
-
-    if (type === "wallpaper") {
-      const wallpapers = [
-        "/mac1.jpg",
-        "/mac2.jpg",
-        "/mac3.jpg",
-      ];
-
-      const random =
-        wallpapers[Math.floor(Math.random() * wallpapers.length)];
-
-      setWallpaper(random);
-    }
-
-    if (type === "about") {
-      alert("💻 MacOS Clone by Ankit\nReact Project 2026");
-    }
-
-    setMenu({ ...menu, visible: false });
+    setMenu({ visible: true, x: e.clientX, y: e.clientY });
   };
 
   useEffect(() => {
-    const close = () =>
-      setMenu((prev) => ({ ...prev, visible: false }));
-
-    window.addEventListener("click", close);
-
-    return () => window.removeEventListener("click", close);
+    const closeMenu = () => setMenu((prev) => ({ ...prev, visible: false }));
+    window.addEventListener("click", closeMenu);
+    return () => window.removeEventListener("click", closeMenu);
   }, []);
 
   return (
@@ -64,20 +20,29 @@ const Desktop = ({ children }) => {
       className="desktop"
       onContextMenu={handleRightClick}
       style={{
+        backgroundColor: "#1a1a1a", // Safe fallback color
         backgroundImage: `url(${wallpaper})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        transition: "background-image 0.5s ease-in-out",
+        filter: isRefreshing ? "brightness(0.6)" : "none",
+        height: "100vh",
+        width: "100vw",
+        position: "relative"
       }}
     >
-
       {children}
 
       {menu.visible && (
         <ContextMenu
           x={menu.x}
           y={menu.y}
-          onAction={handleAction}
+          onAction={(type) => {
+            onAction(type); 
+            setMenu({ ...menu, visible: false });
+          }}
         />
       )}
-
     </div>
   );
 };

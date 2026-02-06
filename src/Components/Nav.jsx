@@ -1,43 +1,63 @@
+import { useState } from "react";
 import DateTime from "./DateTime";
 
+const Nav = ({ setwindow, onWallpaperChange, wallpapers }) => {
+  const [showWallMenu, setShowWallMenu] = useState(false);
 
-
-const Nav = ({setwindow}) => {
   return (
     <nav>
-    <div className="left">
+      <div className="left">
         <div className="apple-icon">
-            <img src="/navbar-icons/apple.svg" alt="apple" />
-        </div>
-        <div className="nav-item"><p>Ankit</p></div>
-        <div  
-        onClick={() => setwindow((state) => ({ ...state, notes: true }))}
-        className="nav-item"><p>Note</p></div>
-        <div
-        
-        onClick={() => setwindow((state) => ({ ...state, resume: true }))}
-        className="nav-item"><p>Resume</p></div>
-
-        <div 
-        
-        onClick={() => setwindow((state) => ({ ...state, spotify: true }))}
-        className="nav-item"><p>Spotify</p></div>
-        <div
-        onClick={() => setwindow((state) => ({ ...state, cli: true }))}
-        className="nav-item"><p>Terminal</p></div>
-
-    </div>
-    <div className="right">
-        <div className="nav-icon">
-            <img src="/navbar-icons/wifi.svg" alt="wifi" />
+          <img src="/navbar-icons/apple.svg" alt="apple" />
         </div>
         <div className="nav-item">
-            <DateTime/>
+          <p>Ankit</p>
+        </div>
+        <div
+          onClick={() => setwindow((s) => ({ ...s, notes: true }))}
+          className="nav-item"
+        >
+          <p>Note</p>
         </div>
 
-    </div>
-    </nav>
-  )
-}
+        <div className="nav-item" style={{ position: "relative" }}>
+          <p
+            onClick={() => setShowWallMenu(!showWallMenu)}
+            style={{ cursor: "pointer" }}
+          >
+            🖼 Wallpapers
+          </p>
 
-export default Nav
+          {showWallMenu && (
+            <div className="nav-dropdown">
+              {wallpapers &&
+                wallpapers.map((wall, index) => (
+                  <div
+                    key={index}
+                    className="dropdown-item"
+                    onClick={() => {
+                      onWallpaperChange(index);
+                      setShowWallMenu(false);
+                    }}
+                  >
+                    Wall {index + 1}
+                  </div>
+                ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="right">
+        <div className="nav-icon">
+          <img src="/navbar-icons/wifi.svg" alt="wifi" />
+        </div>
+        <div className="nav-item">
+          <DateTime />
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Nav;
