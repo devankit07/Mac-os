@@ -5,7 +5,7 @@ const Spotify = ({ windowname, setwindow }) => {
     <Macwindow windowname={windowname} setwindow={setwindow}>
       <div className="spotify-window" style={{ width: "100%", height: "100%", overflow: "hidden" }}>
         <iframe
-          src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcXr3xuOkUJZ?theme=0"
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1DX6XE7HRLM75P?utm_source=generator&theme=0"
           style={{ 
             borderRadius: 12, 
             width: "100%", 
